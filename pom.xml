@@ -115,9 +115,9 @@
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.jboss.as.plugins</groupId>
-          <artifactId>jboss-as-maven-plugin</artifactId>
-          <version>${version.jboss.maven.plugin}</version>
+          <groupId>org.wildfly.plugins</groupId>
+          <artifactId>wildfly-maven-plugin</artifactId>
+          <version>1.0.2.Final</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -133,6 +133,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
           <version>${version.war.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <version>0.22.1</version>
         </plugin>
       </plugins>
     </pluginManagement>

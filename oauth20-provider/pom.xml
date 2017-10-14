@@ -105,6 +105,55 @@
           </archive>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <configuration>
+          <images>
+            <image>
+              <alias>oauth20-with-oltu</alias>
+              <name>oauth20-with-oltu</name>
+              <build>
+                <from>jboss/wildfly:10.1.0.Final</from>
+                <assembly>
+                  <descriptor>assembly.xml</descriptor>
+                  <basedir>/opt/jboss/wildfly/standalone/deployments/</basedir>
+                  <user>jboss:jboss:jboss</user>
+                </assembly>
+                <ports>
+                  <port>8080</port>
+                </ports>
+              </build>
+              <run>
+                <ports>
+                  <port>8080:8080</port>
+                </ports>
+                <log>
+                  <prefix>WF</prefix>
+                  <date>none</date>
+                  <color>cyan</color>
+                </log>
+              </run>
+            </image>
+          </images>
+        </configuration>
+        <executions>
+          <execution>
+            <id>docker:build</id>
+            <phase>package</phase>
+            <goals>
+              <goal>build</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>docker:start</id>
+            <phase>install</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>

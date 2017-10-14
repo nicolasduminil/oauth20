@@ -17,7 +17,7 @@ public class ResourceHeaderEndpoint
   public Response get(@Context HttpServletRequest request) throws OAuthSystemException, OAuthProblemException
   {
     OAuthAccessResourceRequest oauthRequest = new OAuthAccessResourceRequest(request, ParameterStyle.HEADER);
-    return oauthRequest.getAccessToken().equals(Constants.ACCESS_TOKEN_VALID) ? Response.status(Response.Status.OK).entity(oauthRequest.getAccessToken()).build()
+    return oauthRequest.getAccessToken().equals(CacheDAO.ACCESS_TOKEN_VALID) ? Response.status(Response.Status.OK).entity(oauthRequest.getAccessToken()).build()
         : Response.status(Response.Status.UNAUTHORIZED).header(OAuth.HeaderType.WWW_AUTHENTICATE, OAuth.HeaderType.WWW_AUTHENTICATE).build();
   }
 }

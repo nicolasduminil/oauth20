@@ -2,9 +2,8 @@ package fr.simplex_software.oauth20.it;
 
 import java.io.*;
 
-import javax.xml.bind.annotation.*;
+import org.codehaus.jackson.annotate.*;
 
-//@XmlRootElement
 public class RegistrationDTO implements Serializable
 {
   private static final long serialVersionUID = 1L;
@@ -52,6 +51,7 @@ public class RegistrationDTO implements Serializable
     return clientURL;
   }
 
+  @JsonProperty("client_url")
   public void setClientURL(String clientURL)
   {
     this.clientURL = clientURL;

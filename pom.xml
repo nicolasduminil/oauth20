@@ -15,17 +15,14 @@
     <version.oltu>1.0.2</version.oltu>
     <version.slf4j>1.7.25</version.slf4j>
     <version.failsafe.plugin>2.18.1</version.failsafe.plugin>
+    <version.infinispan>5.2.11.Final</version.infinispan>
+    <version.weld>1.1.28.Final</version.weld>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>javax</groupId>
-        <artifactId>javaee-api</artifactId>
-        <version>6.0</version>
-        <scope>provided</scope>
-      </dependency>
+      <!-- dependency> <groupId>org.jboss.bom.eap</groupId> <artifactId>jboss-eap-bom-parent</artifactId> <version>${version.jboss.bom.eap}</version> <type>pom</type> </dependency -->
       <dependency>
         <groupId>org.jboss.bom.eap</groupId>
         <artifactId>jboss-javaee-6.0-with-tools</artifactId>
@@ -44,6 +41,16 @@
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-jackson-provider</artifactId>
         <version>${version.resteasy.bom}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.infinispan</groupId>
+        <artifactId>infinispan-core</artifactId>
+        <version>${version.infinispan}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.weld</groupId>
+        <artifactId>weld-core</artifactId>
+        <version>${version.weld}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.oltu.oauth2</groupId>
@@ -79,6 +86,11 @@
         <groupId>org.apache.oltu.oauth2</groupId>
         <artifactId>org.apache.oltu.oauth2.dynamicreg.server</artifactId>
         <version>${version.oltu}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.6</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>

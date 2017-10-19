@@ -36,7 +36,7 @@
     </dependency>
     <dependency>
       <groupId>org.jboss.spec.javax.ejb</groupId>
-      <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+      <artifactId>jboss-ejb-api_3.2_spec</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -117,12 +117,17 @@
                 <from>jboss/wildfly:10.1.0.Final</from>
                 <assembly>
                   <descriptor>assembly.xml</descriptor>
-                  <basedir>/opt/jboss/wildfly/standalone/deployments/</basedir>
+                  <basedir>/opt/jboss/wildfly/</basedir>
                   <user>jboss:jboss:jboss</user>
                 </assembly>
                 <ports>
                   <port>8080</port>
                 </ports>
+                <runCmds>
+                  <runCmd>echo *** We riched the build section of docker-maven-plugin </runCmd>
+                  <runCmd>ls -al /opt/jboss/wildfly/standalone/bin</runCmd>
+                  <runCmd>/opt/jboss/wildfly/bin/jboss-cli.sh --connect --file=/opt/jboss/wildfly/standalone/bin/create-cache.cli</runCmd>
+                </runCmds>
               </build>
               <run>
                 <ports>

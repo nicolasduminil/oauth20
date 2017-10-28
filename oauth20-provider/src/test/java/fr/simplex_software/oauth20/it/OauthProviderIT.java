@@ -20,7 +20,7 @@ public class OauthProviderIT
   public static void initClient() throws Exception
   {
     client = ClientBuilder.newClient();
-    target = client.target("http://localhost:80/oauth/oauth20/");
+    target = client.target("http://localhost:8080/oauth/oauth20/");
   }
 
   @AfterClass

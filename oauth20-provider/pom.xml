@@ -73,6 +73,10 @@
       <artifactId>org.apache.oltu.oauth2.dynamicreg.server</artifactId>
     </dependency>
     <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
     </dependency>
@@ -122,16 +126,17 @@
                 </assembly>
                 <ports>
                   <port>8080</port>
+                  <port>9990</port>
                 </ports>
+                <cmd>/opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0</cmd>
                 <runCmds>
-                  <runCmd>echo *** We riched the build section of docker-maven-plugin </runCmd>
-                  <runCmd>ls -al /opt/jboss/wildfly/standalone/bin</runCmd>
-                  <runCmd>/opt/jboss/wildfly/bin/jboss-cli.sh --connect --file=/opt/jboss/wildfly/standalone/bin/create-cache.cli</runCmd>
+                  <runCmd>/opt/jboss/wildfly/bin/add-user.sh nicolas California1$</runCmd>
                 </runCmds>
               </build>
               <run>
                 <ports>
                   <port>8080:8080</port>
+                  <port>9990:9990</port>
                 </ports>
                 <log>
                   <prefix>WF</prefix>
